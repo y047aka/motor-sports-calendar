@@ -1,7 +1,9 @@
 module Main exposing (main)
 
 import Browser exposing (Document)
-import Html exposing (main_, text)
+import Html
+import Page
+import Page.HeatMap as HeatMap
 
 
 main : Program () Model Msg
@@ -19,14 +21,12 @@ main =
 
 
 type alias Model =
-    {}
+    HeatMap.Model
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( {}
-    , Cmd.none
-    )
+    HeatMap.init |> stepHeatMap
 
 
 
@@ -34,14 +34,19 @@ init _ =
 
 
 type Msg
-    = NoOp
+    = HeatMapMsg HeatMap.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        NoOp ->
-            ( model, Cmd.none )
+update message model =
+    case message of
+        HeatMapMsg msg ->
+            stepHeatMap (HeatMap.update msg model)
+
+
+stepHeatMap : ( HeatMap.Model, Cmd HeatMap.Msg ) -> ( Model, Cmd Msg )
+stepHeatMap ( model, cmds ) =
+    ( model, Cmd.map HeatMapMsg cmds )
 
 
 
@@ -49,9 +54,7 @@ update msg model =
 
 
 view : Model -> Document Msg
-view _ =
-    { title = ""
-    , body =
-        [ main_ [] [ text "elm-supercell" ]
-        ]
+view model =
+    { title = "MotorSportsCalendar 2019"
+    , body = Page.view (HeatMap.view model |> Html.map HeatMapMsg)
     }
