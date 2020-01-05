@@ -9,3 +9,6 @@ elm-stuff
 
 # Default directory at "npm start"
 dist
+
+# Default directory at "npm run build"
+docs
