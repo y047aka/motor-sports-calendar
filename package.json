@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "rimraf docs && parcel build src/index.html -d docs"
+    "build": "rimraf docs && parcel build src/index.html -d docs --public-url /MotorSportsCalendar"
   },
   "devDependencies": {
     "bulma": "^0.8.0",
