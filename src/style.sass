@@ -1,0 +1,42 @@
+.site-header
+    @extend .navbar
+    @extend .is-spaced
+
+    h1
+        @extend .navbar-brand
+
+        a
+            @extend .navbar-item
+            @extend .is-size-5
+
+    .header-navigation
+        @extend .navbar-menu
+
+        & > div
+            @extend .navbar-end
+
+            & > div
+                @extend .navbar-item
+                @extend .has-dropdown
+                @extend .is-hoverable
+
+                & > a
+                    @extend .navbar-link
+
+                & > div
+                    // @extend .navbar-dropdown
+
+                    a
+                        @extend .navbar-item
+
+main
+    @extend .container
+
+.site-footer
+    @extend .footer
+
+    div
+        @extend .container
+
+// Import Bulma
+@import "../node_modules/bulma/bulma.sass"
