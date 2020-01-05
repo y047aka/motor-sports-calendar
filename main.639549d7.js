@@ -5,4 +5,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"epB2":[function(require,module,exports) {
 "use strict";require("./style.sass");var e=require("./elm/Main.elm"),i=e.Elm.Main.init();
 },{"./style.sass":"GON9","./elm/Main.elm":"ENeC"}]},{},["epB2"], null)
-//# sourceMappingURL=/MotorSportsCalendar/main.639549d7.js.map
+//# sourceMappingURL=main.639549d7.js.map
