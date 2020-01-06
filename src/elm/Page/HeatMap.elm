@@ -189,25 +189,37 @@ viewHeatMapHeader unselectedCategories =
                 , label [ for d.id ] [ text d.value ]
                 ]
     in
-    nav []
+    nav [ class "heatmap-options" ]
         [ ul [] <|
             List.map listItem
                 [ { id = "f1", value = "F1" }
                 , { id = "formulaE", value = "Formula E" }
                 , { id = "wec", value = "WEC" }
-                , { id = "elms", value = "ELMS" }
-                , { id = "wscc", value = "IMSA WSCC" }
-                , { id = "indycar", value = "IndyCar" }
+                , { id = "wtcr", value = "WTCR" }
+                , { id = "wrc", value = "WRC" }
+                ]
+        , ul [] <|
+            List.map listItem
+                [ { id = "indycar", value = "IndyCar" }
                 , { id = "nascar", value = "NASCAR" }
-                , { id = "superFormula", value = "SUPER FORMULA" }
+                , { id = "wscc", value = "IMSA WSCC" }
+                ]
+        , ul [] <|
+            List.map listItem
+                [ { id = "superFormula", value = "SUPER FORMULA" }
                 , { id = "superGT", value = "SUPER GT" }
-                , { id = "dtm", value = "DTM" }
+                , { id = "superTaikyu", value = "Super Taikyu" }
+                ]
+        , ul [] <|
+            List.map listItem
+                [ { id = "dtm", value = "DTM" }
+                , { id = "elms", value = "ELMS" }
                 , { id = "blancpain", value = "Blancpain GT" }
                 , { id = "igtc", value = "IGTC" }
-                , { id = "wtcr", value = "WTCR" }
-                , { id = "superTaikyu", value = "Super Taikyu" }
-                , { id = "wrc", value = "WRC" }
-                , { id = "motoGP", value = "MotoGP" }
+                ]
+        , ul [] <|
+            List.map listItem
+                [ { id = "motoGP", value = "MotoGP" }
                 , { id = "rbar", value = "Red Bull Air Race" }
                 ]
         ]

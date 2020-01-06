@@ -32,6 +32,27 @@
 main
     @extend .container
 
+.heatmap-options
+    @extend .notification
+
+    ul
+        @extend .columns
+        li
+            @extend .column
+            @extend .is-one-fifth
+
+            input
+                display: none
+
+                &:checked + label
+                    @extend .has-background-grey
+
+            label
+                @extend .button
+                @extend .is-fullwidth
+                @extend .has-background-grey-lighter
+                @extend .has-text-white
+
 .site-footer
     @extend .footer
 
