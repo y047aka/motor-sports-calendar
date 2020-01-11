@@ -32,26 +32,82 @@
 main
     @extend .container
 
-.heatmap-options
-    @extend .notification
+section.annual
+    .heatmap
+        display: grid
 
-    ul
-        @extend .columns
-        li
-            @extend .column
-            @extend .is-one-fifth
+        @media screen and (min-width: 1280px)
+            grid-template-columns: 11rem 1fr
+            grid-template-rows: 1.1rem auto 1rem
 
-            input
-                display: none
+        caption
+            @extend .is-size-7
+            @extend .has-text-left
 
-                &:checked + label
-                    @extend .has-background-grey
+            @media screen and (min-width: 1280px)
+                grid-row: 2
+                grid-column: 1
 
-            label
-                @extend .button
-                @extend .is-fullwidth
-                @extend .has-background-grey-lighter
-                @extend .has-text-white
+        tr
+            display: grid
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+            grid-column-gap: 0.1rem
+
+            @media screen and (min-width: 1280px)
+                grid-column: 2
+
+            th
+                @extend .is-size-7
+                @extend .has-text-weight-normal
+
+            td
+                border-radius: 0.1rem
+
+                @extend .is-size-7
+                @extend .has-text-centered
+                // @extend .has-background-light
+
+                &.past
+                    @extend .has-background-grey-lighter
+
+                &.raceweek
+                    background: hsl(340, 100%, 40%)
+
+                    @extend .has-text-white
+
+                    input
+                        display: none
+
+                        &:checked + div
+                            display: block
+
+                    div
+                        position: absolute
+                        display: none
+
+                        @extend .has-background-warning
+
+    .heatmap-options
+        @extend .notification
+
+        ul
+            @extend .columns
+
+            li
+                @extend .column
+                @extend .is-one-fifth
+
+                input
+                    display: none
+
+                    &:checked + label
+                        @extend .has-background-grey
+
+                label
+                    @extend .button
+                    @extend .is-fullwidth
+                    @extend .has-background-grey-lighter
+                    @extend .has-text-white
 
 .site-footer
     @extend .footer

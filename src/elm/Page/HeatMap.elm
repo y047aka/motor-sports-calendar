@@ -150,7 +150,7 @@ view model =
             Time.range Sunday 1 Time.utc start until
     in
     section [ class "annual" ] <|
-        viewHeatMapHeader model.unselectedCategories
+        viewHeatMapOptions model.unselectedCategories
             :: (model.raceCategories
                     |> List.filter (\series -> not (List.member series.seriesName model.unselectedCategories))
                     |> List.map
@@ -164,7 +164,7 @@ view model =
                                         _ ->
                                             series.seriesName ++ " (" ++ series.season ++ ")"
                             in
-                            table []
+                            table [ class "heatmap" ]
                                 [ caption [] [ text tableCaption ]
                                 , viewTicks sundays
                                 , viewRaces sundays series.races model.time
@@ -173,8 +173,8 @@ view model =
                )
 
 
-viewHeatMapHeader : List String -> Html Msg
-viewHeatMapHeader unselectedCategories =
+viewHeatMapOptions : List String -> Html Msg
+viewHeatMapOptions unselectedCategories =
     let
         listItem d =
             li []
