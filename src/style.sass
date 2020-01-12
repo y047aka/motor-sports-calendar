@@ -1,3 +1,5 @@
+$primary: hsl(340, 70%, 45%)
+
 .site-header
     @extend .navbar
     @extend .is-spaced
@@ -71,8 +73,7 @@ section.annual
                     @extend .has-background-grey-lighter
 
                 &.raceweek
-                    background: hsl(340, 100%, 40%)
-
+                    @extend .has-background-primary
                     @extend .has-text-white
 
                     input
@@ -89,25 +90,17 @@ section.annual
 
     .heatmap-options
         @extend .notification
+        @extend .columns
 
         ul
-            @extend .columns
+            @extend .column
 
             li
-                @extend .column
-                @extend .is-one-fifth
+                @extend .field
 
                 input
-                    display: none
-
-                    &:checked + label
-                        @extend .has-background-grey
-
-                label
-                    @extend .button
-                    @extend .is-fullwidth
-                    @extend .has-background-grey-lighter
-                    @extend .has-text-white
+                    @extend .switch
+                    @extend .is-rounded
 
 .site-footer
     @extend .footer
@@ -117,3 +110,4 @@ section.annual
 
 // Import Bulma
 @import "../node_modules/bulma/bulma.sass"
+@import "../node_modules/bulma-switch/dist/css/bulma-switch.sass"
