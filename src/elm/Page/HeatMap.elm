@@ -41,18 +41,17 @@ init =
                 , { category = "WEC", season = "2020-21" }
                 , { category = "WRC", season = "2020" }
                 , { category = "WTCR", season = "2020" }
+                , { category = "NASCAR", season = "2020" }
                 , { category = "IndyCar", season = "2020" }
                 , { category = "IMSA", season = "2020" }
                 , { category = "SuperGT", season = "2020" }
                 , { category = "SuperFormula", season = "2020" }
                 , { category = "SuperTaikyu", season = "2020" }
+                , { category = "DTM", season = "2020" }
+                , { category = "ELMS", season = "2020" }
+                , { category = "BlancpainGT", season = "2020" }
+                , { category = "IGTC", season = "2020" }
                 , { category = "MotoGP", season = "2020" }
-
-                -- , { category = "ELMS", season = "2019" }
-                -- , { category = "NASCAR", season = "2019" }
-                -- , { category = "DTM", season = "2019" }
-                -- , { category = "BlancpainGT", season = "2019" }
-                -- , { category = "IGTC", season = "2019" }
                 ]
     )
 
@@ -102,16 +101,16 @@ compare a b =
             , "WEC"
             , "WRC"
             , "WTCR"
+            , "NASCAR"
             , "IndyCar"
             , "IMSA WSCC"
             , "SUPER GT"
             , "SUPER FORMULA"
-            , "ELMS"
-            , "NASCAR"
+            , "Super Taikyu"
             , "DTM"
+            , "ELMS"
             , "Blancpain GT"
             , "IGTC"
-            , "Super Taikyu"
             , "MotoGP"
             ]
     in
@@ -198,14 +197,14 @@ viewHeatMapOptions unselectedCategories =
                 ]
         , ul [] <|
             List.map listItem
-                [ { id = "indycar", value = "IndyCar" }
-                , { id = "nascar", value = "NASCAR" }
+                [ { id = "nascar", value = "NASCAR" }
+                , { id = "indycar", value = "IndyCar" }
                 , { id = "wscc", value = "IMSA WSCC" }
                 ]
         , ul [] <|
             List.map listItem
-                [ { id = "superFormula", value = "SUPER FORMULA" }
-                , { id = "superGT", value = "SUPER GT" }
+                [ { id = "superGT", value = "SUPER GT" }
+                , { id = "superFormula", value = "SUPER FORMULA" }
                 , { id = "superTaikyu", value = "Super Taikyu" }
                 ]
         , ul [] <|
