@@ -39,20 +39,20 @@ init =
                 , { category = "FormulaE", season = "2019-20" }
                 , { category = "WEC", season = "2019-20" }
                 , { category = "WEC", season = "2020-21" }
+                , { category = "WRC", season = "2020" }
+                , { category = "WTCR", season = "2020" }
                 , { category = "IndyCar", season = "2020" }
                 , { category = "IMSA", season = "2020" }
                 , { category = "SuperGT", season = "2020" }
                 , { category = "SuperFormula", season = "2020" }
                 , { category = "SuperTaikyu", season = "2020" }
+                , { category = "MotoGP", season = "2020" }
 
                 -- , { category = "ELMS", season = "2019" }
                 -- , { category = "NASCAR", season = "2019" }
                 -- , { category = "DTM", season = "2019" }
                 -- , { category = "BlancpainGT", season = "2019" }
                 -- , { category = "IGTC", season = "2019" }
-                -- , { category = "WTCR", season = "2019" }
-                -- , { category = "WRC", season = "2019" }
-                -- , { category = "MotoGP", season = "2019" }
                 ]
     )
 
@@ -100,6 +100,8 @@ compare a b =
             [ "F1"
             , "Formula E"
             , "WEC"
+            , "WRC"
+            , "WTCR"
             , "IndyCar"
             , "IMSA WSCC"
             , "SUPER GT"
@@ -109,11 +111,8 @@ compare a b =
             , "DTM"
             , "Blancpain GT"
             , "IGTC"
-            , "WTCR"
             , "Super Taikyu"
-            , "WRC"
             , "MotoGP"
-            , "Red Bull Air Race"
             ]
     in
     if a.seriesName == b.seriesName then
@@ -219,7 +218,6 @@ viewHeatMapOptions unselectedCategories =
         , ul [] <|
             List.map listItem
                 [ { id = "motoGP", value = "MotoGP" }
-                , { id = "rbar", value = "Red Bull Air Race" }
                 ]
         ]
 
