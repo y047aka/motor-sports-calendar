@@ -35,24 +35,24 @@ init =
     , Cmd.batch <|
         Task.perform Tick Time.now
             :: List.map (filePathFromItem >> getServerResponse GotServerResponse)
-                [ { category = "F1", season = "2019" }
-                , { category = "FormulaE", season = "2018-19" }
-                , { category = "WEC", season = "2018-19" }
+                [ { category = "F1", season = "2020" }
+                , { category = "FormulaE", season = "2019-20" }
                 , { category = "WEC", season = "2019-20" }
-                , { category = "ELMS", season = "2019" }
-                , { category = "IMSA", season = "2019" }
-                , { category = "IndyCar", season = "2019" }
-                , { category = "NASCAR", season = "2019" }
-                , { category = "SuperFormula", season = "2019" }
-                , { category = "SuperGT", season = "2019" }
-                , { category = "DTM", season = "2019" }
-                , { category = "BlancpainGT", season = "2019" }
-                , { category = "IGTC", season = "2019" }
-                , { category = "WTCR", season = "2019" }
-                , { category = "SuperTaikyu", season = "2019" }
-                , { category = "WRC", season = "2019" }
-                , { category = "MotoGP", season = "2019" }
-                , { category = "AirRace", season = "2019" }
+                , { category = "WEC", season = "2020-21" }
+
+                -- , { category = "ELMS", season = "2019" }
+                -- , { category = "IMSA", season = "2019" }
+                -- , { category = "IndyCar", season = "2019" }
+                -- , { category = "NASCAR", season = "2019" }
+                -- , { category = "SuperFormula", season = "2019" }
+                -- , { category = "SuperGT", season = "2019" }
+                -- , { category = "DTM", season = "2019" }
+                -- , { category = "BlancpainGT", season = "2019" }
+                -- , { category = "IGTC", season = "2019" }
+                -- , { category = "WTCR", season = "2019" }
+                -- , { category = "SuperTaikyu", season = "2019" }
+                -- , { category = "WRC", season = "2019" }
+                -- , { category = "MotoGP", season = "2019" }
                 ]
     )
 
@@ -141,7 +141,7 @@ view : Model -> Html Msg
 view model =
     let
         start =
-            Time.Parts 2019 Jan 1 0 0 0 0 |> Time.partsToPosix Time.utc
+            Time.Parts 2020 Jan 1 0 0 0 0 |> Time.partsToPosix Time.utc
 
         until =
             start |> Time.add Year 1 Time.utc
@@ -158,7 +158,7 @@ view model =
                             let
                                 tableCaption =
                                     case series.season of
-                                        "2019" ->
+                                        "2020" ->
                                             series.seriesName
 
                                         _ ->

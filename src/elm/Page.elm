@@ -14,24 +14,9 @@ view content =
 
 siteHeader : Html msg
 siteHeader =
-    let
-        dropdown label items =
-            div []
-                [ a [] [ text label ]
-                , div [ class "navbar-dropdown" ] <|
-                    List.map (\str -> a [] [ text str ]) items
-                ]
-    in
     header [ class "site-header" ]
         [ h1 []
             [ a [] [ text "Motor Sports Calendar" ] ]
-        , nav [ class "header-navigation" ]
-            [ div []
-                [ dropdown "Year" [ "2019", "2020" ]
-                , dropdown "Category" [ "2019", "2020" ]
-                , dropdown "Area" [ "2019", "2020" ]
-                ]
-            ]
         ]
 
 
