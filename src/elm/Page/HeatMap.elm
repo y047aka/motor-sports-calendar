@@ -39,13 +39,13 @@ init =
                 , { category = "FormulaE", season = "2019-20" }
                 , { category = "WEC", season = "2019-20" }
                 , { category = "WEC", season = "2020-21" }
+                , { category = "IndyCar", season = "2020" }
+                , { category = "IMSA", season = "2020" }
                 , { category = "SuperGT", season = "2020" }
                 , { category = "SuperFormula", season = "2020" }
                 , { category = "SuperTaikyu", season = "2020" }
 
                 -- , { category = "ELMS", season = "2019" }
-                -- , { category = "IMSA", season = "2019" }
-                -- , { category = "IndyCar", season = "2019" }
                 -- , { category = "NASCAR", season = "2019" }
                 -- , { category = "DTM", season = "2019" }
                 -- , { category = "BlancpainGT", season = "2019" }
@@ -100,11 +100,11 @@ compare a b =
             [ "F1"
             , "Formula E"
             , "WEC"
+            , "IndyCar"
+            , "IMSA WSCC"
             , "SUPER GT"
             , "SUPER FORMULA"
             , "ELMS"
-            , "IMSA WSCC"
-            , "IndyCar"
             , "NASCAR"
             , "DTM"
             , "Blancpain GT"
