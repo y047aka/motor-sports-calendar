@@ -45,6 +45,7 @@ section.annual
         caption
             @extend .is-size-7
             @extend .has-text-left
+            @extend .has-text-weight-medium
 
             @media screen and (min-width: 1280px)
                 grid-row: 2
@@ -73,6 +74,8 @@ section.annual
                     @extend .has-background-grey-light
 
                 &.raceweek
+                    position: relative
+
                     @extend .has-background-primary
                     @extend .has-text-white
 
@@ -84,9 +87,28 @@ section.annual
 
                     div
                         position: absolute
+                        top: 1.4rem
+                        left: -1.5rem
+                        z-index: 1
                         display: none
+                        width: 10rem
+                        padding: 0.3rem
+                        border-radius: 0.1rem
+                        box-shadow: 0 0 0 1px #FFF
 
-                        @extend .has-background-warning
+                        @extend .has-text-left
+                        @extend .has-background-grey-dark
+
+                        &::after
+                            content: ""
+                            position: absolute
+                            top: -0.3rem
+                            left: 1.7rem
+                            width: 0
+                            height: 0
+                            border-style: solid
+                            border-color: transparent transparent hsl(0, 0%, 29%) transparent
+                            border-width: 0 0.4rem 0.4rem 0.4rem
 
     .heatmap-options
         @extend .notification
@@ -101,6 +123,10 @@ section.annual
                 input
                     @extend .switch
                     @extend .is-rounded
+
+                label
+                    @extend .is-size-7
+                    @extend .has-text-weight-medium
 
 .site-footer
     @extend .footer
