@@ -49,7 +49,7 @@ init =
                 , { category = "SuperTaikyu", season = "2020" }
                 , { category = "DTM", season = "2020" }
                 , { category = "ELMS", season = "2020" }
-                , { category = "BlancpainGT", season = "2020" }
+                , { category = "GTWorldChallenge", season = "2020" }
                 , { category = "IGTC", season = "2020" }
                 , { category = "MotoGP", season = "2020" }
                 ]
@@ -88,7 +88,7 @@ update msg model =
             , Cmd.none
             )
 
-        GotServerResponse (Err error) ->
+        GotServerResponse (Err _) ->
             ( model, Cmd.none )
 
 
@@ -109,7 +109,7 @@ compare a b =
             , "Super Taikyu"
             , "DTM"
             , "ELMS"
-            , "Blancpain GT"
+            , "GT World Challenge"
             , "IGTC"
             , "MotoGP"
             ]
@@ -211,7 +211,7 @@ viewHeatMapOptions unselectedCategories =
             List.map listItem
                 [ { id = "dtm", value = "DTM" }
                 , { id = "elms", value = "ELMS" }
-                , { id = "blancpain", value = "Blancpain GT" }
+                , { id = "gtWorldChallenge", value = "GT World Challenge" }
                 , { id = "igtc", value = "IGTC" }
                 ]
         , ul [] <|
