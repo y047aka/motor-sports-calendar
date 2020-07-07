@@ -162,7 +162,7 @@ view model =
                                             series.seriesName ++ " (" ++ series.season ++ ")"
                             in
                             table [ class "heatmap" ]
-                                [ caption [] [ text tableCaption ]
+                                [ caption [] [ span [] [ text tableCaption ] ]
                                 , viewTicks sundays
                                 , viewRaces sundays series.races model.time
                                 ]
@@ -174,20 +174,22 @@ viewHeatMapOptions : List String -> Html Msg
 viewHeatMapOptions unselectedCategories =
     let
         listItem d =
-            li []
-                [ input
-                    [ id d.id
-                    , type_ "checkbox"
-                    , value d.value
-                    , checked <| not (List.member d.value unselectedCategories)
-                    , onCheck <| UpdateCategories d.value
+            div [ class "field" ]
+                [ div [ class "ui slider checkbox" ]
+                    [ input
+                        [ id d.id
+                        , type_ "checkbox"
+                        , value d.value
+                        , checked <| not (List.member d.value unselectedCategories)
+                        , onCheck <| UpdateCategories d.value
+                        ]
+                        []
+                    , label [ for d.id ] [ span [ class "ui small text" ] [ text d.value ] ]
                     ]
-                    []
-                , label [ for d.id ] [ text d.value ]
                 ]
     in
-    nav [ class "heatmap-options" ]
-        [ ul [] <|
+    nav [ class "ui five column grid" ]
+        [ div [ class "ui column form" ] <|
             List.map listItem
                 [ { id = "f1", value = "F1" }
                 , { id = "formulaE", value = "Formula E" }
@@ -195,26 +197,26 @@ viewHeatMapOptions unselectedCategories =
                 , { id = "wtcr", value = "WTCR" }
                 , { id = "wrc", value = "WRC" }
                 ]
-        , ul [] <|
+        , div [ class "ui column form" ] <|
             List.map listItem
                 [ { id = "nascar", value = "NASCAR" }
                 , { id = "indycar", value = "IndyCar" }
                 , { id = "wscc", value = "IMSA WSCC" }
                 ]
-        , ul [] <|
+        , div [ class "ui column form" ] <|
             List.map listItem
                 [ { id = "superGT", value = "SUPER GT" }
                 , { id = "superFormula", value = "SUPER FORMULA" }
                 , { id = "superTaikyu", value = "Super Taikyu" }
                 ]
-        , ul [] <|
+        , div [ class "ui column form" ] <|
             List.map listItem
                 [ { id = "dtm", value = "DTM" }
                 , { id = "elms", value = "ELMS" }
                 , { id = "gtWorldChallenge", value = "GT World Challenge" }
                 , { id = "igtc", value = "IGTC" }
                 ]
-        , ul [] <|
+        , div [ class "ui column form" ] <|
             List.map listItem
                 [ { id = "motoGP", value = "MotoGP" }
                 ]
@@ -230,7 +232,7 @@ viewTicks sundays =
         tableheader posix =
             if isBeginningOfMonth posix then
                 th []
-                    [ text <| stringFromMonth (Time.toMonth Time.utc posix) ]
+                    [ span [ class "ui tiny text" ] [ text <| stringFromMonth (Time.toMonth Time.utc posix) ] ]
 
             else
                 th [] []
@@ -247,9 +249,9 @@ viewRaces sundays races currentPosix =
                 Scheduled race ->
                     td [ class "raceweek" ]
                         [ label []
-                            [ text <| String.fromInt (Time.toDay Time.utc sundayPosix)
+                            [ span [ class "ui small text" ] [ text <| String.fromInt (Time.toDay Time.utc sundayPosix) ]
                             , input [ type_ "checkbox" ] []
-                            , div []
+                            , div [ class "ui flowing popup bottom left tiny transition inverted segment" ]
                                 [ text <| String.left 10 (Iso8601.fromTime race.posix)
                                 , br [] []
                                 , text race.name
