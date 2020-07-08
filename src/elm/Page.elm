@@ -4,10 +4,10 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 
 
-view : Html msg -> List (Html msg)
-view content =
+view : List (Html msg) -> List (Html msg)
+view contents =
     [ siteHeader
-    , main_ [ class "ui main container" ] [ content ]
+    , main_ [ class "ui main container" ] contents
     , siteFooter
     ]
 

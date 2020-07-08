@@ -134,44 +134,15 @@ compare a b =
 -- VIEW
 
 
-view : Model -> Html Msg
+view : Model -> List (Html Msg)
 view model =
-    let
-        start =
-            Time.Parts 2020 Jan 1 0 0 0 0 |> Time.partsToPosix Time.utc
-
-        until =
-            start |> Time.add Year 1 Time.utc
-
-        sundays =
-            Time.range Sunday 1 Time.utc start until
-    in
-    section [ class "annual" ] <|
-        viewHeatMapOptions model.unselectedCategories
-            :: (model.raceCategories
-                    |> List.filter (\series -> not (List.member series.seriesName model.unselectedCategories))
-                    |> List.map
-                        (\series ->
-                            let
-                                tableCaption =
-                                    case series.season of
-                                        "2020" ->
-                                            series.seriesName
-
-                                        _ ->
-                                            series.seriesName ++ " (" ++ series.season ++ ")"
-                            in
-                            table [ class "heatmap" ]
-                                [ caption [] [ span [] [ text tableCaption ] ]
-                                , viewTicks sundays
-                                , viewRaces sundays series.races model.time
-                                ]
-                        )
-               )
+    [ viewHeatMapConfig model.unselectedCategories
+    , viewHeatMap model
+    ]
 
 
-viewHeatMapOptions : List String -> Html Msg
-viewHeatMapOptions unselectedCategories =
+viewHeatMapConfig : List String -> Html Msg
+viewHeatMapConfig unselectedCategories =
     let
         listItem d =
             div [ class "field" ]
@@ -221,6 +192,41 @@ viewHeatMapOptions unselectedCategories =
                 [ { id = "motoGP", value = "MotoGP" }
                 ]
         ]
+
+
+viewHeatMap : Model -> Html Msg
+viewHeatMap model =
+    let
+        start =
+            Time.Parts 2020 Jan 1 0 0 0 0 |> Time.partsToPosix Time.utc
+
+        until =
+            start |> Time.add Year 1 Time.utc
+
+        sundays =
+            Time.range Sunday 1 Time.utc start until
+    in
+    section []
+        (model.raceCategories
+            |> List.filter (\series -> not (List.member series.seriesName model.unselectedCategories))
+            |> List.map
+                (\series ->
+                    let
+                        tableCaption =
+                            case series.season of
+                                "2020" ->
+                                    series.seriesName
+
+                                _ ->
+                                    series.seriesName ++ " (" ++ series.season ++ ")"
+                    in
+                    table [ class "heatmap" ]
+                        [ caption [] [ span [] [ text tableCaption ] ]
+                        , viewTicks sundays
+                        , viewRaces sundays series.races model.time
+                        ]
+                )
+        )
 
 
 viewTicks : List Posix -> Html Msg

@@ -56,5 +56,5 @@ stepHeatMap ( model, cmds ) =
 view : Model -> Document Msg
 view model =
     { title = "MotorSportsCalendar 2020"
-    , body = Page.view (HeatMap.view model |> Html.map HeatMapMsg)
+    , body = Page.view (HeatMap.view model |> List.map (Html.map HeatMapMsg))
     }
