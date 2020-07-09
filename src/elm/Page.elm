@@ -26,9 +26,11 @@ siteFooter : Html msg
 siteFooter =
     footer [ class "ui inverted vertical footer segment" ]
         [ div [ class "ui container" ]
-            [ p [ class "copyright" ]
-                [ text "© 2020 "
-                , a [ href "https://y047aka.me", target "_blank" ] [ text "y047aka" ]
+            [ div [ class "ui right floated horizontal list" ]
+                [ p [ class "item" ]
+                    [ text "© 2020 "
+                    , a [ href "https://y047aka.me", target "_blank" ] [ text "y047aka" ]
+                    ]
                 ]
             ]
         ]

@@ -159,38 +159,40 @@ viewHeatMapConfig unselectedCategories =
                     ]
                 ]
     in
-    nav [ class "ui five column grid" ]
-        [ div [ class "ui column form" ] <|
-            List.map listItem
-                [ { id = "f1", value = "F1" }
-                , { id = "formulaE", value = "Formula E" }
-                , { id = "wec", value = "WEC" }
-                , { id = "wtcr", value = "WTCR" }
-                , { id = "wrc", value = "WRC" }
-                ]
-        , div [ class "ui column form" ] <|
-            List.map listItem
-                [ { id = "nascar", value = "NASCAR" }
-                , { id = "indycar", value = "IndyCar" }
-                , { id = "wscc", value = "IMSA WSCC" }
-                ]
-        , div [ class "ui column form" ] <|
-            List.map listItem
-                [ { id = "superGT", value = "SUPER GT" }
-                , { id = "superFormula", value = "SUPER FORMULA" }
-                , { id = "superTaikyu", value = "Super Taikyu" }
-                ]
-        , div [ class "ui column form" ] <|
-            List.map listItem
-                [ { id = "dtm", value = "DTM" }
-                , { id = "elms", value = "ELMS" }
-                , { id = "gtWorldChallenge", value = "GT World Challenge" }
-                , { id = "igtc", value = "IGTC" }
-                ]
-        , div [ class "ui column form" ] <|
-            List.map listItem
-                [ { id = "motoGP", value = "MotoGP" }
-                ]
+    nav [ class "ui vertical stripe segment" ]
+        [ div [ class "ui five column grid" ]
+            [ div [ class "ui column form" ] <|
+                List.map listItem
+                    [ { id = "f1", value = "F1" }
+                    , { id = "formulaE", value = "Formula E" }
+                    , { id = "wec", value = "WEC" }
+                    , { id = "wtcr", value = "WTCR" }
+                    , { id = "wrc", value = "WRC" }
+                    ]
+            , div [ class "ui column form" ] <|
+                List.map listItem
+                    [ { id = "nascar", value = "NASCAR" }
+                    , { id = "indycar", value = "IndyCar" }
+                    , { id = "wscc", value = "IMSA WSCC" }
+                    ]
+            , div [ class "ui column form" ] <|
+                List.map listItem
+                    [ { id = "superGT", value = "SUPER GT" }
+                    , { id = "superFormula", value = "SUPER FORMULA" }
+                    , { id = "superTaikyu", value = "Super Taikyu" }
+                    ]
+            , div [ class "ui column form" ] <|
+                List.map listItem
+                    [ { id = "dtm", value = "DTM" }
+                    , { id = "elms", value = "ELMS" }
+                    , { id = "gtWorldChallenge", value = "GT World Challenge" }
+                    , { id = "igtc", value = "IGTC" }
+                    ]
+            , div [ class "ui column form" ] <|
+                List.map listItem
+                    [ { id = "motoGP", value = "MotoGP" }
+                    ]
+            ]
         ]
 
 
@@ -206,7 +208,7 @@ viewHeatMap model =
         sundays =
             Time.range Sunday 1 Time.utc start until
     in
-    section []
+    section [ class "ui vertical stripe segment" ]
         (model.raceCategories
             |> List.filter (\series -> not (List.member series.seriesName model.unselectedCategories))
             |> List.map
