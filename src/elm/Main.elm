@@ -1,8 +1,8 @@
 module Main exposing (main)
 
 import Browser exposing (Document)
-import Html.Styled as Html exposing (toUnstyled)
-import Page
+import Html.Styled as Html exposing (Html, a, div, footer, header, main_, p, span, text, toUnstyled)
+import Html.Styled.Attributes exposing (class, href, target)
 import Page.HeatMap as HeatMap
 
 
@@ -56,5 +56,35 @@ stepHeatMap ( model, cmds ) =
 view : Model -> Document Msg
 view model =
     { title = "MotorSportsCalendar 2020"
-    , body = Page.view (HeatMap.view model |> List.map (Html.map HeatMapMsg)) |> List.map toUnstyled
+    , body =
+        [ siteHeader
+        , main_ [ class "ui main container" ]
+            (HeatMap.view model |> List.map (Html.map HeatMapMsg))
+        , siteFooter
+        ]
+            |> List.map toUnstyled
     }
+
+
+siteHeader : Html msg
+siteHeader =
+    header [ class "ui inverted vertical segment" ]
+        [ div [ class "ui container" ]
+            [ span [ class "header item" ]
+                [ a [] [ text "Motor Sports Calendar" ] ]
+            ]
+        ]
+
+
+siteFooter : Html msg
+siteFooter =
+    footer [ class "ui inverted vertical footer segment" ]
+        [ div [ class "ui container" ]
+            [ div [ class "ui right floated horizontal list" ]
+                [ p [ class "item" ]
+                    [ text "© 2020 "
+                    , a [ href "https://y047aka.me", target "_blank" ] [ text "y047aka" ]
+                    ]
+                ]
+            ]
+        ]
