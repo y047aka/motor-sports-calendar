@@ -1,8 +1,8 @@
 module Page.HeatMap exposing (Model, Msg, init, update, view)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
-import Html.Events exposing (onCheck)
+import Html.Styled exposing (Html, br, caption, div, input, label, nav, section, span, table, td, text, th, tr)
+import Html.Styled.Attributes exposing (checked, class, for, id, type_, value)
+import Html.Styled.Events exposing (onCheck)
 import Http
 import Iso8601
 import List.Extra as List

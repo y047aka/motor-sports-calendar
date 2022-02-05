@@ -1,7 +1,7 @@
 module Page exposing (view)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html.Styled exposing (Html, a, div, footer, header, main_, p, span, text)
+import Html.Styled.Attributes exposing (class, href, target)
 
 
 view : List (Html msg) -> List (Html msg)

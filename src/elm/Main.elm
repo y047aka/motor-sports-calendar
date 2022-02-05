@@ -1,7 +1,7 @@
 module Main exposing (main)
 
 import Browser exposing (Document)
-import Html
+import Html.Styled as Html exposing (toUnstyled)
 import Page
 import Page.HeatMap as HeatMap
 
@@ -56,5 +56,5 @@ stepHeatMap ( model, cmds ) =
 view : Model -> Document Msg
 view model =
     { title = "MotorSportsCalendar 2020"
-    , body = Page.view (HeatMap.view model |> List.map (Html.map HeatMapMsg))
+    , body = Page.view (HeatMap.view model |> List.map (Html.map HeatMapMsg)) |> List.map toUnstyled
     }
