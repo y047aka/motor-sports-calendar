@@ -1,18 +1,18 @@
 {
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "rimraf docs && parcel build src/index.html -d docs --public-url ./"
+    "build": "rimraf docs && parcel build src/index.html --dist-dir docs --no-source-maps"
   },
   "devDependencies": {
-    "elm": "^0.19.1-3",
-    "elm-analyse": "^0.16.5",
-    "elm-format": "^0.8.3",
-    "elm-hot": "^1.1.4",
-    "elm-json": "^0.2.7",
-    "elm-test": "^0.19.1-revision2",
-    "fomantic-ui-css": "^2.8.6",
-    "parcel-bundler": "^1.12.4",
-    "rimraf": "^3.0.2",
-    "sass": "^1.26.9"
+    "elm": "^0.19.1-5",
+    "elm-format": "^0.8.5",
+    "elm-hot": "^1.1.6",
+    "fomantic-ui-css": "^2.8.8"
+  },
+  "dependencies": {
+    "@parcel/transformer-elm": "^2.2.1",
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1",
+    "rimraf": "^3.0.2"
   }
 }
