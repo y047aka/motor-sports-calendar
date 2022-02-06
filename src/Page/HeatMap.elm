@@ -40,8 +40,7 @@ init =
         Task.perform Tick Time.now
             :: List.map (filePathFromItem >> getServerResponse GotServerResponse)
                 [ { category = "F1", season = "2022" }
-
-                -- , { category = "FormulaE", season = "2019-20" }
+                , { category = "FormulaE", season = "2021-22" }
                 , { category = "WEC", season = "2022" }
 
                 -- , { category = "WRC", season = "2020" }
