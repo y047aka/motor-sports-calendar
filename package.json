@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "parcel index.html",
-    "build": "rimraf docs && parcel build index.html --dist-dir docs --public-url /MotorSportsCalendar/ --no-source-maps"
+    "build": "rimraf docs && parcel build index.html --dist-dir docs --public-url /motor-sports-calendar/ --no-source-maps"
   },
   "devDependencies": {
     "elm": "^0.19.1-5",

@@ -61,7 +61,7 @@ stepHeatMap ( model, cmds ) =
 
 view : Model -> Document Msg
 view model =
-    { title = "MotorSportsCalendar 2022"
+    { title = "MotorSports Calendar 2022"
     , body =
         [ global (normalize ++ additionalReset ++ globalCustomize)
         , siteHeader
