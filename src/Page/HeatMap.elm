@@ -167,7 +167,7 @@ viewHeatMapConfig unselectedCategories =
     verticalSegment { inverted = False }
         [ class "vertical stripe" ]
         [ fiveColumnsGrid []
-            [ column [  ] <|
+            [ column [] <|
                 List.map listItem
                     [ { id = "f1", value = "F1" }
                     , { id = "formulaE", value = "Formula E" }
@@ -175,26 +175,26 @@ viewHeatMapConfig unselectedCategories =
                     , { id = "wtcr", value = "WTCR" }
                     , { id = "wrc", value = "WRC" }
                     ]
-            , column [  ] <|
+            , column [] <|
                 List.map listItem
                     [ { id = "nascar", value = "NASCAR" }
                     , { id = "indycar", value = "IndyCar" }
                     , { id = "wscc", value = "IMSA WSCC" }
                     ]
-            , column [  ] <|
+            , column [] <|
                 List.map listItem
                     [ { id = "superGT", value = "SUPER GT" }
                     , { id = "superFormula", value = "SUPER FORMULA" }
                     , { id = "superTaikyu", value = "Super Taikyu" }
                     ]
-            , column [  ] <|
+            , column [] <|
                 List.map listItem
                     [ { id = "dtm", value = "DTM" }
                     , { id = "elms", value = "ELMS" }
                     , { id = "gtWorldChallenge", value = "GT World Challenge" }
                     , { id = "igtc", value = "IGTC" }
                     ]
-            , column [  ] <|
+            , column [] <|
                 List.map listItem
                     [ { id = "motoGP", value = "MotoGP" }
                     ]
