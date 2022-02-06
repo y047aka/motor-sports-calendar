@@ -39,23 +39,24 @@ init =
     , Cmd.batch <|
         Task.perform Tick Time.now
             :: List.map (filePathFromItem >> getServerResponse GotServerResponse)
-                [ { category = "F1", season = "2020" }
-                , { category = "FormulaE", season = "2019-20" }
-                , { category = "WEC", season = "2019-20" }
-                , { category = "WEC", season = "2021" }
-                , { category = "WRC", season = "2020" }
-                , { category = "WTCR", season = "2020" }
-                , { category = "NASCAR", season = "2020" }
-                , { category = "IndyCar", season = "2020" }
-                , { category = "IMSA", season = "2020" }
-                , { category = "SuperGT", season = "2020" }
-                , { category = "SuperFormula", season = "2020" }
-                , { category = "SuperTaikyu", season = "2020" }
-                , { category = "DTM", season = "2020" }
-                , { category = "ELMS", season = "2020" }
-                , { category = "GTWorldChallenge", season = "2020" }
-                , { category = "IGTC", season = "2020" }
-                , { category = "MotoGP", season = "2020" }
+                [ { category = "F1", season = "2022" }
+
+                -- , { category = "FormulaE", season = "2019-20" }
+                -- , { category = "WEC", season = "2019-20" }
+                -- , { category = "WEC", season = "2021" }
+                -- , { category = "WRC", season = "2020" }
+                -- , { category = "WTCR", season = "2020" }
+                -- , { category = "NASCAR", season = "2020" }
+                -- , { category = "IndyCar", season = "2020" }
+                -- , { category = "IMSA", season = "2020" }
+                -- , { category = "SuperGT", season = "2020" }
+                -- , { category = "SuperFormula", season = "2020" }
+                -- , { category = "SuperTaikyu", season = "2020" }
+                -- , { category = "DTM", season = "2020" }
+                -- , { category = "ELMS", season = "2020" }
+                -- , { category = "GTWorldChallenge", season = "2020" }
+                -- , { category = "IGTC", season = "2020" }
+                -- , { category = "MotoGP", season = "2020" }
                 ]
     )
 
@@ -140,8 +141,8 @@ compare a b =
 
 view : Model -> List (Html Msg)
 view model =
-    [ viewHeatMapConfig model.unselectedCategories
-    , viewHeatMap model
+    [ -- viewHeatMapConfig model.unselectedCategories
+      viewHeatMap model
     ]
 
 
@@ -205,7 +206,7 @@ viewHeatMap : Model -> Html Msg
 viewHeatMap model =
     let
         start =
-            Time.Parts 2020 Jan 1 0 0 0 0 |> Time.partsToPosix Time.utc
+            Time.Parts 2022 Jan 1 0 0 0 0 |> Time.partsToPosix Time.utc
 
         until =
             start |> Time.add Year 1 Time.utc
@@ -222,7 +223,7 @@ viewHeatMap model =
                     let
                         tableCaption =
                             case series.season of
-                                "2020" ->
+                                "2022" ->
                                     series.seriesName
 
                                 _ ->

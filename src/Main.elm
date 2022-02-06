@@ -61,7 +61,7 @@ stepHeatMap ( model, cmds ) =
 
 view : Model -> Document Msg
 view model =
-    { title = "MotorSportsCalendar 2020"
+    { title = "MotorSportsCalendar 2022"
     , body =
         [ global (normalize ++ additionalReset ++ globalCustomize)
         , siteHeader
@@ -89,8 +89,8 @@ siteFooter =
         [ container []
             [ div [ css [ textAlign right ] ]
                 [ p []
-                    [ text "© 2020 "
-                    , a [ href "https://y047aka.me", Attributes.target "_blank" ] [ text "y047aka" ]
+                    [ text "© 2022 "
+                    , a [ href "https://y047aka.space", Attributes.target "_blank" ] [ text "y047aka" ]
                     ]
                 ]
             ]
