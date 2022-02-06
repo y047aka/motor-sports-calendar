@@ -46,8 +46,8 @@ init =
                 -- , { category = "WRC", season = "2020" }
                 -- , { category = "WTCR", season = "2020" }
                 -- , { category = "NASCAR", season = "2020" }
-                -- , { category = "IndyCar", season = "2020" }
-                -- , { category = "IMSA", season = "2020" }
+                , { category = "IndyCar", season = "2022" }
+                , { category = "IMSA", season = "2022" }
                 , { category = "SuperGT", season = "2022" }
                 , { category = "SuperFormula", season = "2022" }
 
