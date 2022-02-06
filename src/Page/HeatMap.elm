@@ -48,8 +48,9 @@ init =
                 -- , { category = "NASCAR", season = "2020" }
                 -- , { category = "IndyCar", season = "2020" }
                 -- , { category = "IMSA", season = "2020" }
-                -- , { category = "SuperGT", season = "2020" }
-                -- , { category = "SuperFormula", season = "2020" }
+                , { category = "SuperGT", season = "2022" }
+                , { category = "SuperFormula", season = "2022" }
+
                 -- , { category = "SuperTaikyu", season = "2020" }
                 -- , { category = "DTM", season = "2020" }
                 -- , { category = "ELMS", season = "2020" }
