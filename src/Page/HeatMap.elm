@@ -42,8 +42,8 @@ init =
                 [ { category = "F1", season = "2022" }
 
                 -- , { category = "FormulaE", season = "2019-20" }
-                -- , { category = "WEC", season = "2019-20" }
-                -- , { category = "WEC", season = "2021" }
+                , { category = "WEC", season = "2022" }
+
                 -- , { category = "WRC", season = "2020" }
                 -- , { category = "WTCR", season = "2020" }
                 -- , { category = "NASCAR", season = "2020" }
