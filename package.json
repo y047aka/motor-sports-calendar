@@ -6,8 +6,7 @@
   "devDependencies": {
     "elm": "^0.19.1-5",
     "elm-format": "^0.8.5",
-    "elm-hot": "^1.1.6",
-    "fomantic-ui-css": "^2.8.8"
+    "elm-hot": "^1.1.6"
   },
   "dependencies": {
     "@parcel/transformer-elm": "^2.2.1",

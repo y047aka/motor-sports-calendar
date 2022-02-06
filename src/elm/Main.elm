@@ -1,9 +1,15 @@
 module Main exposing (main)
 
 import Browser exposing (Document)
+import Css exposing (..)
+import Css.Global exposing (global)
+import Css.Reset exposing (normalize)
+import Css.ResetAndCustomize exposing (additionalReset, globalCustomize)
 import Html.Styled as Html exposing (Html, a, div, footer, header, main_, p, span, text, toUnstyled)
-import Html.Styled.Attributes exposing (class, href, target)
+import Html.Styled.Attributes as Attributes exposing (class, css, href)
 import Page.HeatMap as HeatMap
+import UI.Container exposing (container)
+import UI.Segment exposing (verticalSegment)
 
 
 main : Program () Model Msg
@@ -57,8 +63,9 @@ view : Model -> Document Msg
 view model =
     { title = "MotorSportsCalendar 2020"
     , body =
-        [ siteHeader
-        , main_ [ class "ui main container" ]
+        [ global (normalize ++ additionalReset ++ globalCustomize)
+        , siteHeader
+        , container []
             (HeatMap.view model |> List.map (Html.map HeatMapMsg))
         , siteFooter
         ]
@@ -68,22 +75,22 @@ view model =
 
 siteHeader : Html msg
 siteHeader =
-    header [ class "ui inverted vertical segment" ]
-        [ div [ class "ui container" ]
-            [ span [ class "header item" ]
-                [ a [] [ text "Motor Sports Calendar" ] ]
-            ]
+    verticalSegment { inverted = True }
+        []
+        [ container []
+            [ a [] [ text "Motor Sports Calendar" ] ]
         ]
 
 
 siteFooter : Html msg
 siteFooter =
-    footer [ class "ui inverted vertical footer segment" ]
-        [ div [ class "ui container" ]
-            [ div [ class "ui right floated horizontal list" ]
-                [ p [ class "item" ]
+    verticalSegment { inverted = True }
+        [ class "footer segment" ]
+        [ container []
+            [ div [ css [ textAlign right ] ]
+                [ p []
                     [ text "© 2020 "
-                    , a [ href "https://y047aka.me", target "_blank" ] [ text "y047aka" ]
+                    , a [ href "https://y047aka.me", Attributes.target "_blank" ] [ text "y047aka" ]
                     ]
                 ]
             ]

@@ -10,6 +10,10 @@ import Races exposing (Race, Season, getServerResponse)
 import Task
 import Time exposing (Month(..), Posix)
 import Time.Extra as Time exposing (Interval(..))
+import UI.Checkbox as Checkbox exposing (checkbox)
+import UI.Grid exposing (column, fiveColumnsGrid)
+import UI.Segment exposing (verticalSegment)
+import UI.Text exposing (smallText, tinyText)
 import Url.Builder exposing (crossOrigin)
 import Weekend exposing (Weekend(..))
 
@@ -145,9 +149,9 @@ viewHeatMapConfig : List String -> Html Msg
 viewHeatMapConfig unselectedCategories =
     let
         listItem d =
-            div [ class "field" ]
-                [ div [ class "ui slider checkbox" ]
-                    [ input
+            div []
+                [ checkbox []
+                    [ Checkbox.input
                         [ id d.id
                         , type_ "checkbox"
                         , value d.value
@@ -155,13 +159,14 @@ viewHeatMapConfig unselectedCategories =
                         , onCheck <| UpdateCategories d.value
                         ]
                         []
-                    , label [ for d.id ] [ span [ class "ui small text" ] [ text d.value ] ]
+                    , Checkbox.label [ for d.id ] [ smallText d.value ]
                     ]
                 ]
     in
-    nav [ class "ui vertical stripe segment" ]
-        [ div [ class "ui five column grid" ]
-            [ div [ class "ui column form" ] <|
+    verticalSegment { inverted = False }
+        [ class "vertical stripe" ]
+        [ fiveColumnsGrid []
+            [ column [  ] <|
                 List.map listItem
                     [ { id = "f1", value = "F1" }
                     , { id = "formulaE", value = "Formula E" }
@@ -169,26 +174,26 @@ viewHeatMapConfig unselectedCategories =
                     , { id = "wtcr", value = "WTCR" }
                     , { id = "wrc", value = "WRC" }
                     ]
-            , div [ class "ui column form" ] <|
+            , column [  ] <|
                 List.map listItem
                     [ { id = "nascar", value = "NASCAR" }
                     , { id = "indycar", value = "IndyCar" }
                     , { id = "wscc", value = "IMSA WSCC" }
                     ]
-            , div [ class "ui column form" ] <|
+            , column [  ] <|
                 List.map listItem
                     [ { id = "superGT", value = "SUPER GT" }
                     , { id = "superFormula", value = "SUPER FORMULA" }
                     , { id = "superTaikyu", value = "Super Taikyu" }
                     ]
-            , div [ class "ui column form" ] <|
+            , column [  ] <|
                 List.map listItem
                     [ { id = "dtm", value = "DTM" }
                     , { id = "elms", value = "ELMS" }
                     , { id = "gtWorldChallenge", value = "GT World Challenge" }
                     , { id = "igtc", value = "IGTC" }
                     ]
-            , div [ class "ui column form" ] <|
+            , column [  ] <|
                 List.map listItem
                     [ { id = "motoGP", value = "MotoGP" }
                     ]
@@ -208,7 +213,8 @@ viewHeatMap model =
         sundays =
             Time.range Sunday 1 Time.utc start until
     in
-    section [ class "ui vertical stripe segment" ]
+    verticalSegment { inverted = False }
+        [ class "vertical stripe" ]
         (model.raceCategories
             |> List.filter (\series -> not (List.member series.seriesName model.unselectedCategories))
             |> List.map
@@ -239,8 +245,7 @@ viewTicks sundays =
 
         tableheader posix =
             if isBeginningOfMonth posix then
-                th []
-                    [ span [ class "ui tiny text" ] [ text <| stringFromMonth (Time.toMonth Time.utc posix) ] ]
+                th [] [ tinyText <| stringFromMonth (Time.toMonth Time.utc posix) ]
 
             else
                 th [] []
@@ -257,9 +262,9 @@ viewRaces sundays races currentPosix =
                 Scheduled race ->
                     td [ class "raceweek" ]
                         [ label []
-                            [ span [ class "ui small text" ] [ text <| String.fromInt (Time.toDay Time.utc sundayPosix) ]
+                            [ smallText <| String.fromInt (Time.toDay Time.utc sundayPosix)
                             , input [ type_ "checkbox" ] []
-                            , div [ class "ui flowing popup bottom left tiny transition inverted segment" ]
+                            , div []
                                 [ text <| String.left 10 (Iso8601.fromTime race.posix)
                                 , br [] []
                                 , text race.name
